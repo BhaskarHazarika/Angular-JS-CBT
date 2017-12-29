@@ -1,0 +1,51 @@
+<!doctype html>
+<!--root Scope-->
+<html>
+  <head>
+	<meta charset="utf-8">
+    <title>My AngularJS App</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <!--script src="C:\Projects\AngularJS\angular.min.js"><script></!-->
+	<script type="text/javascript">
+	var app = angular.module("sample", []).run(["$rootScope", function($rootScope){
+			$rootScope.TaxPercent = 30;
+	}]);
+	
+	app.controller("emp",["$scope", function($scope){			<!-- Tov avoid javascript minimizing $scope>
+		$scope.Name = "Jag";		
+	}]);
+	
+	app.controller("empDetails", ["$scope", function($scope){
+		$scope.City = "Vienna";
+		$scope.Salary = 4500;
+		$scope.getAnnualSalary = function(){
+			return this.Salary * 12;
+			};
+		$scope.Dept = "Sales";				
+	}]);
+	
+	app.controller("empPayCheck", ["$scope","$rootScope", function($scope, $rootScope){
+		$scope.getTaxes = function(){
+			return $scope.Salary * $rootScope.TaxPercent/100;
+		};
+		
+		$scope.getNet = function(){
+			return $scope.Salary - $scope.getTaxes();
+		};
+	}]);
+	
+	</script>
+  </head>
+  <body ng-app="sample">
+	<div ng-controller="emp">
+		Hello <Strong>{{Name}}</Strong>
+		<div ng-controller="empDetails">
+			It looks like your salary is {{Salary}} that makes annual salary as {{getAnnualSalary}} in a city like {{City}}
+				<div ng-controller="empPayCheck">
+					Total tax deducted is {{getTaxes()}}	<BR>
+					Net amount after tax is {{getNet()}}
+				</div>
+		</div>	
+	</div>
+   </body>
+</html>

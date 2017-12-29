@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+	<script type="text/javascript" src="a01.js"></script>	
+</head>
+<body ng-app="app">
+	<div ng-controller="emp">
+		<form class="form-inline">
+		<div class="form-group">  
+		<label>Enter employee ID: </label>
+		<input type="text" class="form-control" ng-model="id"/>
+		</div>
+		<button ng-click="doSearch()" class="btn btn-primary">Search</button>
+		</form>
+		<hr>
+		<div class="row">
+			<div class="col-sm-2">Name</div>
+
+			<div class="col-sm-2">{{name}}
+
+			<!-- using filter from controller	
+			<div class="col-sm-2">{{nameFilter}}
+			-->
+			<!-- using filter in view
+			<div class="col-sm-2">{{name | uppercase}}
+			-->
+
+
+			<!--
+			<span ng-if="name==hazarika" class="glyphicon glyphicon-flash"></span>	
+			<span ng-show="name==hazarika" class="glyphicon glyphicon-transfer"></span>	
+			<span ng-hide="name==hazarika" class="glyphicon glyphicon-piggy-bank"></span>	
+			-->
+			</div>			
+		</div>
+		<div class="row">
+			<div class="col-sm-2">Email</div>			
+			<div class="col-sm-2">{{email}}</div>			
+		</div>
+		<div class="row">
+			<div class="col-sm-2">Password</div>			
+			<div class="col-sm-2">{{password}}</div>			
+		</div>
+	</div>	
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!doctype html>
+<!-- hybrid version to use controller instance object o></!-->
+<html>
+  <head>
+	<meta charset="utf-8">
+    <title>My AngularJS App</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <!script src="C:\Projects\AngularJS\angular.min.js"><!/script>
+	<script type="text/javascript">
+	var app = angular.module("sample", []);
+	app.controller("emp",["$scope", function($scope){			<!-- To avoid javascript minimizing $scope>
+		$scope.o = this;
+		this.Name = "Jag";
+		this.Salary = 4500;
+	}]);
+	</script>
+  </head>
+  <body ng-app="sample">
+	<div ng-controller="emp as o">
+		Hello {{o.Name}}, looks like your salary is {{o.Salary}};		
+	</div>
+   </body>
+</html>
